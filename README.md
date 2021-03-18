@@ -1,10 +1,10 @@
-# Hanbitco API
+![Hanbitco](https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/177237/Hanbitco-Logo.png)
 
-Available for:
+# Hanbitco API Python
 
-* Python 3
+Official API Python Wrapper for [Hanbitco Exchange](https://www.hanbitco.com).
 
-## Python 3
+## Get Started
 
 ### Run with source code
 
@@ -17,7 +17,7 @@ pipenv install
 ### Download from PyPi
 
 ```bash
-pip3 install hanbitco-api
+pip3 install hanbitco-api-python
 ```
 
 ### Examples
