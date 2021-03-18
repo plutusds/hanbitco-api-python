@@ -6,12 +6,20 @@ Available for:
 
 ## Python 3
 
+# Run with source code
+
+Install dependencies
+
 ```bash
 pipenv install
 ```
 
-```python
-from hanbitco import HanbitcoAPI
+# Download from PyPi
 
-api = HanbitcoAPI()
+```bash
+pip3 install hanbitco-api
 ```
+
+# Examples
+
+[main.py](main.py)
