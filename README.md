@@ -6,7 +6,7 @@ Available for:
 
 ## Python 3
 
-# Run with source code
+### Run with source code
 
 Install dependencies
 
@@ -14,12 +14,12 @@ Install dependencies
 pipenv install
 ```
 
-# Download from PyPi
+### Download from PyPi
 
 ```bash
 pip3 install hanbitco-api
 ```
 
-# Examples
+### Examples
 
 [main.py](main.py)
