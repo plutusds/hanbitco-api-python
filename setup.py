@@ -15,7 +15,7 @@ setup(
     author_email     = "kevink1103@gmail.com",
     license          = "MIT",
     url              = "https://github.com/plutusds/hanbitco-api",
-    download_url     = "https://github.com/plutusds/hanbitco-api/dist/pyprnt-{}-py3-none-any.whl".format(version),
+    download_url     = "https://github.com/plutusds/hanbitco-api/dist/hanbitco_api-{}-py3-none-any.whl".format(version),
     install_requires = [],
     packages         = find_packages(exclude = []),
     keywords         = ["cryptocurrency", "exchange", "api"],
