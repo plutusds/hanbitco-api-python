@@ -17,7 +17,7 @@ pipenv install
 ### Download from PyPi
 
 ```bash
-pip3 install hanbitco-api-python
+pip3 install hanbitco-api
 ```
 
 ### Examples
