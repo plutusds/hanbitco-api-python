@@ -4,6 +4,8 @@ from hanbitco import OrderType, OrderSide
 
 
 def convert_symbol(symbol: str):
+    if "/" not in symbol:
+        raise Exception("symbol format should be QUOTE/BASE. ex) ETH/BTC.")
     tokens = symbol.split("/")
     return "-".join(tokens).upper()
 

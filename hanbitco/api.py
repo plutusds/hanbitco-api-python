@@ -21,9 +21,13 @@ class HanbitcoAPI:
         self.api_key = api_key
         self.secret = secret_key
 
-    def fetch_tickers(self):
+    def fetch_ticker(self, symbol: str = None):
         path = "/v1/ticker/"
-        return self.get(path)
+        payload = {}
+        if symbol:
+            symbol = convert_symbol(symbol)
+            payload["trading_pair_name"] = symbol
+        return self.get(path, payload=payload)
 
     def fetch_order_book(self, symbol: str):
         currency_pair = convert_symbol(symbol)

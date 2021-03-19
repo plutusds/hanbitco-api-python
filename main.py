@@ -4,8 +4,12 @@ api_key, secret_key = None, None
 
 api = HanbitcoAPI(api_key, secret_key)
 
-# Fetch Tickers (public)
-result = api.fetch_tickers()
+# Fetch all tickers (public)
+result = api.fetch_ticker()
+print(result)
+
+# Fetch a ticker
+result = api.fetch_ticker("ETH/BTC")
 print(result)
 
 # Fetch Orderbook (public)
