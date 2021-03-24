@@ -43,7 +43,7 @@ print(result)
 # Get orders with Pagination (private)
 next_page = None
 while True:
-    result = api.get_orders("ETH/BTC", OrderStatus.WAIT)
+    result = api.get_orders("ETH/BTC", OrderStatus.WAIT, cursor=next_page)
     next_page = result["next"]
     print(result)
 

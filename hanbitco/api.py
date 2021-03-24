@@ -9,6 +9,7 @@ import base64
 import hashlib
 import urllib.parse
 
+from hanbitco.error import HanbitcoException
 from hanbitco.utils import convert_symbol, create_order_payload, furnish_cursors, private
 from hanbitco.constants import ORIGIN, OrderType, OrderSide, OrderStatus
 
@@ -54,7 +55,7 @@ class HanbitcoAPI:
     @private
     def create_orders(self, orders: List[Dict[str, Any]]):
         if not orders:
-            raise Exception("pass more than one order")
+            raise ValueError("pass more than one order")
         path = "/v1/orders/"
         payload = orders
         return self.post(path, payload)
@@ -125,7 +126,7 @@ class HanbitcoAPI:
 
         response = requests.get(uri, headers=headers)
         if (response.status_code // 100) != 2: # must be 200 range
-            raise Exception(
+            raise HanbitcoException(
                 f"get({uri}, {payload}) failed (status code: {response.status_code}) (body: {response.text})"
             )
 
@@ -138,7 +139,7 @@ class HanbitcoAPI:
         headers = self._generate_auth_header("POST", path, payload)
         response = requests.post(uri, headers=headers, json=payload)
         if (response.status_code // 100) != 2:  # must be 200 range
-            raise Exception(
+            raise HanbitcoException(
                 f"post({uri}, {payload}) failed (status code: {response.status_code}) (body: {response.text})"
             )
 
@@ -151,7 +152,7 @@ class HanbitcoAPI:
         headers = self._generate_auth_header("DELETE", path)
         response = requests.delete(uri, headers=headers)
         if (response.status_code // 100) != 2:  # must be 200 range
-            raise Exception(
+            raise HanbitcoException(
                 f"delete({uri}) failed (status code: {response.status_code}) (body: {response.text})"
             )
 
