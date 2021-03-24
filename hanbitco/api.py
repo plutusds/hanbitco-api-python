@@ -39,18 +39,24 @@ class HanbitcoAPI:
         return self.get(path, payload=payload)
 
     @private
-    def fetch_balance(self):
+    def fetch_balance(self, currencies: List[str] = None):
+        currencies = [] if not currencies else currencies
+        if type(currencies) is not list:
+            raise TypeError("currencies should be list")
         path = "/v1/accounts/"
-        return self.get(path, private=True)
+        payload = {}
+        if currencies:
+            payload["symbols"] = ",".join(currencies).upper()
+        return self.get(path, payload=payload, private=True)
 
     @private
     def create_order(
-        self, symbol: str, order_type: OrderType, order_side: OrderSide, price: str, amount: str
+        self, symbol: str, order_type: OrderType, order_side: OrderSide, price: str, amount: str,
+        post_only: bool = None, nickname: str = None
     ):
         currency_pair = convert_symbol(symbol)
-        path = "/v1/orders/"
-        payload = [create_order_payload(currency_pair, order_type, order_side, price, amount)]
-        return self.post(path, payload)
+        orders = [create_order_payload(currency_pair, order_type, order_side, price, amount, post_only, nickname)]
+        return self.create_orders(orders)
 
     @private
     def create_orders(self, orders: List[Dict[str, Any]]):

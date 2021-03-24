@@ -12,12 +12,16 @@ print(result)
 result = api.fetch_ticker("ETH/BTC")
 print(result)
 
-# Fetch Orderbook (public)
+# Fetch orderbook (public)
 result = api.fetch_order_book("ETH/BTC")
 print(result)
 
-# Fetch Orderbook (private)
+# Fetch all currency balance (private)
 result = api.fetch_balance()
+print(result)
+
+# Fetch specific currency balance (private)
+result = api.fetch_balance(["BTC", "ETH"])
 print(result)
 
 # Place an order (private)

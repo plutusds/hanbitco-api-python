@@ -11,7 +11,8 @@ def convert_symbol(symbol: str):
 
 
 def create_order_payload(
-        symbol: str, order_type: OrderType, order_side: OrderSide, price: str, amount: str
+        symbol: str, order_type: OrderType, order_side: OrderSide, price: str, amount: str,
+        post_only: bool = None, nickname: str = None
 ):
     currency_pair = convert_symbol(symbol)
     payload = {
@@ -21,6 +22,10 @@ def create_order_payload(
         "price": float(price),
         "volume": float(amount)
     }
+    if post_only is not None:
+        payload["post_only"] = post_only
+    if nickname:
+        payload["nickname"] = nickname
     return payload
 
 

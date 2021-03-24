@@ -25,6 +25,15 @@ pipenv install
 pip3 install hanbitco-api
 ```
 
-### Examples
+## Examples
 
 [main.py](main.py)
+
+## API Doc
+
+[Link](https://docs.hanbitco.com/)
+
+## Author
+
+Kevin Kim  
+<kevin@plutusds.com>
